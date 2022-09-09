@@ -1,6 +1,13 @@
 const http  = require('http');
 const fs = require('fs');
 
+const users = [
+    {name: 'John', age: 25},
+    {name: 'Jane', age: 30},
+    {name: 'Jack', age: 28},
+    {name: 'Jill', age: 32}
+];
+
 const server = http.createServer((req, res) => {
         if(req.url === '/readFile'){
             fs.readFile('index.html', "utf-8", (err, data) => {
@@ -53,7 +60,18 @@ const server = http.createServer((req, res) => {
                 console.log("File renamed");
                 res.end();
             });
+        } if (req.url === '/createFolder') {
+            fs.mkdir('newFolder', (err) => {
+                if (err) {
+                    console.log("Error on create folder", err);
+                }
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.write(JSON.stringify({ message: "Folder created"}));
+                console.log("Folder created");
+                res.end();
+            });
         }
+    
 });
 
 server.listen(3001, () => console.log('Server is running on port 3001'));

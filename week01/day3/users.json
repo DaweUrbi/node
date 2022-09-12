@@ -1,0 +1,7 @@
+{
+    "users": [
+      { "id": 1, "name": "Arthur", "country": "Brazil" },
+      { "id": 2, "name": "Nicolo", "country": "Italy" },
+      { "id": 3, "name": "Emir", "country": "Turkey" }
+    ]
+  }

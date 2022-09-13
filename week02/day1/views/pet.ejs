@@ -1,0 +1,7 @@
+<li>
+    <%= pet.name %> <%= pet.age %> <%= pet.type %>
+    <a href="/edit/<%= pet.id %>">Edit</a>
+    <form method="post" action="/delete/<%= pet.id %>">
+      <button>Delete</button>
+    </form>
+  </li>
